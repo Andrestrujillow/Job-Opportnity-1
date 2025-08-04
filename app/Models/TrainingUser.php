@@ -9,10 +9,11 @@ use Illuminate\Database\Eloquent\Builder;
 
 class TrainingUser extends Model
 {
-    public function Training()
-    {
-        return $this->belongsTo(Training::class);
-    }
+    public function training()
+{
+    return $this->belongsTo(Training::class, 'capacitacion_id'); // FK en inscripcion_capacitacion
+}
+
 
     public function Unemployed()
     {
@@ -21,6 +22,10 @@ class TrainingUser extends Model
 
 
 
+public function trainingUsers()
+{
+    return $this->hasMany(TrainingUser::class);
+}
 
 
 

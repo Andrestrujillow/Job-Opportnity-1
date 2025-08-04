@@ -18,4 +18,6 @@ class TrainingUserController extends Controller
 
         return $relation;
     }
+
+    
 }

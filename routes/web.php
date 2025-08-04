@@ -76,6 +76,20 @@ Route::delete('/capacitaciones/{id}', [TrainingController::class, 'destroy'])->n
 
 
 
+
+Route::get('/training', [TrainingController::class, 'index'])->name('training.index');
+Route::get('/training/create', [TrainingController::class, 'create'])->name('training.create');
+Route::post('/training', [TrainingController::class, 'store'])->name('training.store');
+Route::get('/training/{id}/edit', [TrainingController::class, 'edit'])->name('training.edit');
+Route::put('/training/{id}', [TrainingController::class, 'update'])->name('training.update');
+Route::delete('/training/{id}', [TrainingController::class, 'destroy'])->name('training.destroy');
+Route::post('/training/{id}/inscribir', [TrainingController::class, 'inscribir'])->name('training.inscribir');
+
+// Nueva ruta para mostrar las inscripciones a capacitaciones
+Route::get('/training/inscripciones', [TrainingController::class, 'inscripciones'])->name('training.inscripciones');
+
+
+
 Route::middleware(['auth'])->group(function () {
     Route::resource('classifieds', ClassifiedController::class);
 });
